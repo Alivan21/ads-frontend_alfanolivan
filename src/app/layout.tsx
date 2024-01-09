@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={cn("min-h-screen scroll-smooth bg-gray-50 font-sans antialiased", fontSans.className)}>
         <Toaster position="top-right" reverseOrder={false} />
         <TanstackProvider>
-          <main className="container min-h-screen px-20 py-10 text-gray-900">{children}</main>
+          <main className="container min-h-screen p-10 text-gray-900 md:px-20">{children}</main>
         </TanstackProvider>
       </body>
     </html>

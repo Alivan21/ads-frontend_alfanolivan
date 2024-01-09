@@ -44,7 +44,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
 
   return (
     <>
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between md:gap-0">
         <Link href="/create">
           <Button className="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700">
             <Plus size={20} strokeWidth={2.5} /> Tambah Buku
@@ -89,8 +89,8 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
           )}
         </TableBody>
       </Table>
-      <div className="flex items-center justify-between px-3">
-        <div className="flex items-center gap-5">
+      <div className="flex flex-col gap-2 px-3 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-row items-center justify-between md:justify-start md:gap-5">
           <div>
             <span>Page</span>
             <strong>
@@ -114,7 +114,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
             </select>
           </div>
         </div>
-        <div className="flex items-center justify-end space-x-2">
+        <div className="flex items-center justify-between md:justify-end md:space-x-2">
           <Button
             disabled={!table.getCanPreviousPage()}
             onClick={() => table.previousPage()}

@@ -5,22 +5,31 @@ import { Button } from "@/components/ui/button";
 import { Book } from "@/types/book";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown, Pencil, Trash2 } from "lucide-react";
+import DeleteModal from "./delete-modal";
 
 export const columns: ColumnDef<Book>[] = [
   {
     accessorKey: "title",
-    header: "Judul",
+    header: () => {
+      return <span className="whitespace-nowrap uppercase">Judul</span>;
+    },
+    cell: ({ row }) => {
+      return <span className="whitespace-nowrap">{row.getValue("title")}</span>;
+    },
   },
   {
     accessorKey: "description",
     header: "Deskripsi",
+    cell: ({ row }) => {
+      return <span className="line-clamp-2 max-w-md whitespace-nowrap">{row.getValue("description")}</span>;
+    },
   },
   {
     accessorKey: "price",
     header: ({ column }) => {
       return (
         <Button onClick={() => column.toggleSorting(column.getIsSorted() === "asc")} variant="ghost">
-          Email
+          <span className="uppercase">Harga</span>
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
@@ -52,9 +61,7 @@ export const columns: ColumnDef<Book>[] = [
               <Pencil size={20} strokeWidth={2.5} />
             </Button>
           </Link>
-          <Button size="sm" variant="destructive">
-            <Trash2 />
-          </Button>
+          <DeleteModal id={book.id} />
         </div>
       );
     },
