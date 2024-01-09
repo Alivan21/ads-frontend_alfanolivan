@@ -16,7 +16,7 @@ import {
   SortingState,
   useReactTable,
 } from "@tanstack/react-table";
-import { ChevronLeft, ChevronRight, Plus } from "lucide-react";
+import { ChevronLeft, ChevronRight, Plus, SearchIcon } from "lucide-react";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -50,12 +50,15 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
             <Plus size={20} strokeWidth={2.5} /> Tambah Buku
           </Button>
         </Link>
-        <Input
-          className="max-w-sm"
-          onChange={event => table.getColumn("title")?.setFilterValue(event.target.value)}
-          placeholder="Filter Judul..."
-          value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
-        />
+        <div className="relative w-full max-w-sm">
+          <SearchIcon className="absolute left-2.5 top-3 h-4 w-4 text-gray-500" />
+          <Input
+            className="pl-9"
+            onChange={event => table.getColumn("title")?.setFilterValue(event.target.value)}
+            placeholder="Filter Judul..."
+            value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
+          />
+        </div>
       </div>
       <Table>
         <TableHeader className="bg-blue-600 uppercase">

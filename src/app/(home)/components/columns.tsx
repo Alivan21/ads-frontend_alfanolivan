@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Book } from "@/types/book";
+import { formatPrice } from "@/utils/format-idr";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown, Pencil, Trash2 } from "lucide-react";
 import DeleteModal from "./delete-modal";
@@ -35,12 +36,7 @@ export const columns: ColumnDef<Book>[] = [
       );
     },
     cell: ({ row }) => {
-      const price = parseFloat(row.getValue("price"));
-      const formatted = new Intl.NumberFormat("id-ID", {
-        style: "currency",
-        currency: "IDR",
-      }).format(price);
-
+      const formatted = formatPrice(row.getValue("price"));
       return <span>{formatted}</span>;
     },
   },
@@ -53,7 +49,6 @@ export const columns: ColumnDef<Book>[] = [
     header: "Aksi",
     cell: ({ row }) => {
       const book = row.original;
-
       return (
         <div className="flex flex-col gap-2 md:flex-row">
           <Link href={`/edit/${book.id}`}>
