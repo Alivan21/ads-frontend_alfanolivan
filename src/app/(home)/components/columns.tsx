@@ -17,7 +17,12 @@ export const columns: ColumnDef<CellBook>[] = [
     accessorKey: "number",
     header: ({ column }) => {
       return (
-        <Button onClick={() => column.toggleSorting(column.getIsSorted() === "asc")} size="sm" variant="ghost">
+        <Button
+          className="-mr-8"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          size="sm"
+          variant="ghost"
+        >
           <span className="uppercase">#</span>
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
@@ -25,7 +30,7 @@ export const columns: ColumnDef<CellBook>[] = [
     },
     cell: ({ row }) => {
       const number = row.index + 1;
-      return <span className="whitespace-nowrap">{number}</span>;
+      return <span className="whitespace-nowrap text-center">{number}</span>;
     },
   },
   {
@@ -48,7 +53,7 @@ export const columns: ColumnDef<CellBook>[] = [
     accessorKey: "price",
     header: ({ column }) => {
       return (
-        <Button onClick={() => column.toggleSorting(column.getIsSorted() === "asc")} variant="ghost">
+        <Button onClick={() => column.toggleSorting(column.getIsSorted() === "asc")} size="sm" variant="ghost">
           <span className="uppercase">Harga</span>
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
