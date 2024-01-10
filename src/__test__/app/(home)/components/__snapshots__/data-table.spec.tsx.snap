@@ -13,6 +13,7 @@ exports[`Data Table Component should render data table component 1`] = `
         >
           <button
             class="justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground h-10 px-4 py-2 flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700"
+            id="new_book"
           >
             <svg
               class="lucide lucide-plus "
@@ -66,6 +67,16 @@ exports[`Data Table Component should render data table component 1`] = `
             value=""
           />
         </div>
+      </div>
+      <div
+        class=""
+      >
+        <span
+          class="font-medium text-gray-900"
+        >
+          Jumlah buku tersedia: 
+          0
+        </span>
       </div>
       <div
         class="relative w-full overflow-auto"
@@ -271,6 +282,7 @@ exports[`Data Table Component should render data table component 1`] = `
       >
         <button
           class="justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground h-10 px-4 py-2 flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700"
+          id="new_book"
         >
           <svg
             class="lucide lucide-plus "
@@ -324,6 +336,16 @@ exports[`Data Table Component should render data table component 1`] = `
           value=""
         />
       </div>
+    </div>
+    <div
+      class=""
+    >
+      <span
+        class="font-medium text-gray-900"
+      >
+        Jumlah buku tersedia: 
+        0
+      </span>
     </div>
     <div
       class="relative w-full overflow-auto"

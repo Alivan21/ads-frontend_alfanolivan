@@ -1,10 +1,10 @@
-import EditPage from "@/app/edit/[id]/page";
+import Detail from "@/app/detail/[id]/page";
 import { render } from "@testing-library/react";
 
-describe("Edit Page", () => {
-  it("should render edit page", () => {
+describe("Detail Page", () => {
+  it("should render detail page", () => {
     const page = render(
-      <EditPage
+      <Detail
         params={{
           id: "508",
         }}
