@@ -3,17 +3,17 @@ import { Book } from "@/types/book";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 
-export function useUpdateBook(props: Book) {
+export function useUpdateBook() {
   const queryClient = useQueryClient();
-  const formData = new FormData();
-
-  formData.append("title", props.title);
-  formData.append("author", props.author);
-  formData.append("price", props.price.toString());
-  formData.append("description", props.description);
 
   return useMutation({
-    mutationFn: async () => {
+    mutationFn: async (props: Book) => {
+      const formData = new FormData();
+
+      formData.append("title", props.title);
+      formData.append("author", props.author);
+      formData.append("price", props.price.toString());
+      formData.append("description", props.description);
       await httpClient.put(`/data/${props.id}`, formData);
     },
     onSuccess: () => {
