@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Book } from "@/types/book";
 import { formatPrice } from "@/utils/format-idr";
 import { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, Pencil, Trash2 } from "lucide-react";
+import { ArrowUpDown, EyeIcon, Pencil, Trash2 } from "lucide-react";
 import DeleteModal from "./delete-modal";
 
 export const columns: ColumnDef<Book>[] = [
@@ -51,6 +51,11 @@ export const columns: ColumnDef<Book>[] = [
       const book = row.original;
       return (
         <div className="flex flex-col gap-2 md:flex-row">
+          <Link href={`/detail/${book.id}`}>
+            <Button className="bg-blue-600 hover:bg-blue-700" size="sm">
+              <EyeIcon size={20} strokeWidth={2.5} />
+            </Button>
+          </Link>
           <Link href={`/edit/${book.id}`}>
             <Button className="bg-green-600 hover:bg-green-700" size="sm">
               <Pencil size={20} strokeWidth={2.5} />

@@ -61,19 +61,25 @@ function EditForm({ id }: { id: string }) {
   }
 
   return (
-    <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+    <form className="flex flex-col gap-4" id="edit_book" onSubmit={handleSubmit}>
       <div className="grid grid-cols-2 gap-4">
         <div className="flex flex-col">
           <label className="mb-2 font-medium" htmlFor="title">
             Judul
           </label>
-          <Input id="title" onChange={handleChange} placeholder="Masukkan judul" value={form.title} />
+          <Input id="title" onChange={handleChange} placeholder="Masukkan judul" required value={form.title} />
         </div>
         <div className="flex flex-col">
           <label className="mb-2 font-medium" htmlFor="author">
             Penulis
           </label>
-          <Input id="author" onChange={handleChange} placeholder="Masukkan nama pengarang" value={form.author} />
+          <Input
+            id="author"
+            onChange={handleChange}
+            placeholder="Masukkan nama pengarang"
+            required
+            value={form.author}
+          />
         </div>
       </div>
       <div className="flex flex-col">
@@ -86,6 +92,7 @@ function EditForm({ id }: { id: string }) {
           onInput={handleInput}
           pattern="[0-9]*"
           placeholder="Masukkan harga"
+          required
           type="text"
           value={form.price}
         />
@@ -98,10 +105,11 @@ function EditForm({ id }: { id: string }) {
           id="description"
           onChange={handleChange}
           placeholder="Ketik deskripsi disini"
+          required
           value={form.description}
         />
       </div>
-      <Button className="w-full bg-blue-600 hover:bg-blue-700" disabled={isPending} type="submit">
+      <Button className="w-full bg-blue-600 hover:bg-blue-700" disabled={isPending} id="edit_button" type="submit">
         {isPending ? "Mengubah..." : "Ubah"}
       </Button>
     </form>

@@ -46,7 +46,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
     <>
       <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between md:gap-0">
         <Link href="/create">
-          <Button className="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700">
+          <Button className="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700" id="new_book">
             <Plus size={20} strokeWidth={2.5} /> Tambah Buku
           </Button>
         </Link>
@@ -59,6 +59,9 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
             value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
           />
         </div>
+      </div>
+      <div className="">
+        <span className="font-medium text-gray-900">Jumlah buku tersedia: {data.length}</span>
       </div>
       <Table>
         <TableHeader className="bg-blue-600 uppercase">
