@@ -5,10 +5,29 @@ import { Button } from "@/components/ui/button";
 import { Book } from "@/types/book";
 import { formatPrice } from "@/utils/format-idr";
 import { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, EyeIcon, Pencil, Trash2 } from "lucide-react";
+import { ArrowUpDown, EyeIcon, Pencil } from "lucide-react";
 import DeleteModal from "./delete-modal";
 
-export const columns: ColumnDef<Book>[] = [
+type CellBook = Book & {
+  number: number;
+};
+
+export const columns: ColumnDef<CellBook>[] = [
+  {
+    accessorKey: "number",
+    header: ({ column }) => {
+      return (
+        <Button onClick={() => column.toggleSorting(column.getIsSorted() === "asc")} size="sm" variant="ghost">
+          <span className="uppercase">#</span>
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+    cell: ({ row }) => {
+      const number = row.index + 1;
+      return <span className="whitespace-nowrap">{number}</span>;
+    },
+  },
   {
     accessorKey: "title",
     header: () => {
