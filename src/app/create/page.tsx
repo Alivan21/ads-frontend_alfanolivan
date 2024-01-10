@@ -13,6 +13,7 @@ function Create() {
         </Link>
         <h1 className="text-xl font-bold">Tambah Buku</h1>
       </div>
+      <hr />
       <CreateForm />
     </section>
   );

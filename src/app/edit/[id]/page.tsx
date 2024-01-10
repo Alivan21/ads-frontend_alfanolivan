@@ -13,6 +13,7 @@ function EditPage({ params }: { params: { id: string } }) {
         </Link>
         <h1 className="text-xl font-bold">Ubah Buku</h1>
       </div>
+      <hr />
       <EditForm id={params.id} />
     </section>
   );

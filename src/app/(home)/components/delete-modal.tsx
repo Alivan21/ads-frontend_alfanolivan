@@ -31,11 +31,11 @@ function DeleteModal({ id }: { id: number }) {
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Hapus Buku</DialogTitle>
-          <DialogDescription>
-            Apakah anda yakin ingin menghapus buku ini? Buku yang sudah dihapus tidak dapat dikembalikan.
-          </DialogDescription>
         </DialogHeader>
-        <DialogFooter>
+        <DialogDescription>
+          Apakah anda yakin ingin menghapus buku ini? Buku yang sudah dihapus tidak dapat dikembalikan.
+        </DialogDescription>
+        <DialogFooter className="gap-2">
           <DialogClose asChild>
             <Button onClick={handleDelete} variant="destructive">
               Hapus

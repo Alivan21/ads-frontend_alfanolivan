@@ -13,6 +13,7 @@ export default async function Home() {
   return (
     <section className="flex flex-col gap-5 rounded-md bg-white p-5 shadow-md">
       <h1 className="text-xl font-bold">Daftar Buku</h1>
+      <hr />
       <HydrationBoundary state={dehydrate(queryClient)}>
         <BookTable />
       </HydrationBoundary>
