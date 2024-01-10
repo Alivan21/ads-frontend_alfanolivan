@@ -15,7 +15,7 @@ import { Trash2 } from "lucide-react";
 import { useDeleteBook } from "../services/delete-book";
 
 function DeleteModal({ id }: { id: number }) {
-  const { mutateAsync: deleteBook } = useDeleteBook();
+  const { isPending, mutateAsync: deleteBook } = useDeleteBook();
 
   const handleDelete = async () => {
     await deleteBook(id);
@@ -37,12 +37,12 @@ function DeleteModal({ id }: { id: number }) {
         </DialogDescription>
         <DialogFooter className="gap-2">
           <DialogClose asChild>
-            <Button onClick={handleDelete} variant="destructive">
+            <Button disabled={isPending} onClick={handleDelete} variant="destructive">
               Hapus
             </Button>
           </DialogClose>
           <DialogClose asChild>
-            <Button type="button" variant="outline">
+            <Button disabled={isPending} type="button" variant="outline">
               Kembali
             </Button>
           </DialogClose>
